@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 60px;
+  padding: 80px;
+}
+
+.left {
+  position: sticky;
+  top: 200px;
+  height: fit-content;
+}
+
+.title {
+  padding: 12px 0;
+  color: #999;
+  font-weight: 500;
+}
+
+.title.active {
+  color: #000;
+  font-weight: 700;
+}
+
+.right .card {
+  height: 80vh;
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 80px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
