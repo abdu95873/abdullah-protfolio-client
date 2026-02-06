@@ -43,7 +43,17 @@ const Navbar = () => {
   return (
     <nav className="w-full flex items-center py-6 px-10 bg-white shadow-sm fixed top-0 z-50">
       {/* Logo */}
-      <div className="text-2xl font-bold">Abdullah</div>
+     <div className="flex justify-center items-center  bg-white">
+      <div className="relative">
+        {/* Yellow Circle */}
+        <div className="absolute left-[45px] -top-3 w-10 h-10 bg-yellow-400 rounded-full z-0"></div>
+
+        {/* Text */}
+        <h1 className="relative z-10 text-3xl font-extrabold text-black tracking-tight">
+          Abdullah
+        </h1>
+      </div>
+    </div>
 
       {/* Menu Container */}
       <div className="grow flex justify-end items-center relative">

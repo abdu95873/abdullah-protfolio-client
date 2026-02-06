@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from "../../../assets/a87e14e3-2719-43c9-af36-6ed2c9866d22.jfif";
+import profileImg from "../../../assets/abdullah2.png";
 
 const About = () => {
   return (
@@ -11,7 +11,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Abdullah"
-            className="w-72 h-72 lg:w-96 lg:h-96 object-cover rounded-full shadow-lg"
+            className=" h-fit object-cover"
           />
           {/* Experience Badge */}
           {/* <div className="absolute bottom-4 right-0 bg-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-md">

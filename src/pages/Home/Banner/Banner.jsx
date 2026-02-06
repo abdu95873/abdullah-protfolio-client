@@ -39,11 +39,13 @@ const Banner = () => {
         {/* Right side - Image */}
         <div className="md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg">
-            <img
-              src="/src/assets/a87e14e3-2719-43c9-af36-6ed2c9866d22.jfif"
-              alt="Abdullah"
-              className="object-cover w-full h-full"
-            />
+            <div className="overflow-hidden w-full h-full">
+  <img
+    src="/src/assets/a87e14e3-2719-43c9-af36-6ed2c9866d22.jfif"
+    alt="Abdullah"
+    className="object-cover w-full h-full transition-transform duration-500 ease-in-out scale-140"
+  />
+</div>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function App() {
      <ServicesSection></ServicesSection>
 
       {/* PROJECTS */}
-      <section className="py-24 px-6 max-w-5xl mx-auto">
+      {/* <section className="py-24 px-6 max-w-5xl mx-auto">
         <h2 className="text-3xl font-semibold mb-8">Projects</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -45,7 +45,7 @@ export default function App() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* EXPERIENCE */}
       <Experience></Experience>

@@ -3,44 +3,52 @@ import { FaReact, FaLaptopCode, FaServer } from "react-icons/fa";
 
 const experiences = [
   {
-    icon: <FaReact size={24} className="text-blue-500" />,
-    title: "React Development",
+    icon: <FaReact size={26} className="text-blue-500" />,
+    title: "React & Frontend Engineering",
     description:
-      "Built multiple production-ready web applications using modern React architecture and best practices.",
+      "Developed scalable and maintainable React applications using hooks, reusable components, and modern state management. Focused on performance and clean UI architecture.",
   },
   {
-    icon: <FaLaptopCode size={24} className="text-purple-500" />,
-    title: "Frontend Development",
+    icon: <FaLaptopCode size={26} className="text-purple-500" />,
+    title: "Modern UI Development",
     description:
-      "Designed responsive UIs with HTML, CSS, Tailwind CSS, and JavaScript to create seamless user experiences.",
+      "Crafted responsive and accessible interfaces using HTML, CSS, Tailwind CSS, and JavaScript, ensuring consistent design across devices and browsers.",
   },
   {
-    icon: <FaServer size={24} className="text-green-500" />,
-    title: "Fullstack Projects",
+    icon: <FaServer size={26} className="text-green-500" />,
+    title: "MERN Stack Applications",
     description:
-      "Implemented fullstack apps with clean architecture, backend integration, and database management.",
+      "Built full-stack applications with MongoDB, Express, React, and Node.js, including REST APIs, authentication, database modeling, and secure server-side logic.",
   },
 ];
 
 const Experience = () => {
   return (
-    <section className="py-24 px-6 bg-gray-50">
+    <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-12 text-center text-gray-900">
-          Experience & Highlights
+        <p className="text-orange-600 font-semibold text-center mb-2">
+          EXPERIENCE
+        </p>
+
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">
+          Experience & Technical Highlights
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition-transform transform hover:-translate-y-2"
+              className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="mb-4">{exp.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
+
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
                 {exp.title}
               </h3>
-              <p className="text-gray-600 text-sm">{exp.description}</p>
+
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {exp.description}
+              </p>
             </div>
           ))}
         </div>

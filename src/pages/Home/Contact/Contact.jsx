@@ -13,22 +13,22 @@ const Contact = () => {
     {
       icon: <FaGithub size={20} />,
       label: "GitHub",
-      value: "github.com/yourusername",
-      href: "https://github.com/yourusername",
+      value: "github.com/abdu95873",
+      href: "https://github.com/abdu95873",
       color: "text-gray-800",
     },
     {
       icon: <FaLinkedin size={20} />,
       label: "LinkedIn",
-      value: "linkedin.com/in/yourusername",
-      href: "https://linkedin.com/in/yourusername",
+      value: "linkedin.com/in/abdu95873",
+      href: "https://linkedin.com/in/abdu95873",
       color: "text-blue-600",
     },
     {
       icon: <FaWhatsapp size={20} />,
       label: "WhatsApp",
-      value: "+880XXXXXXXXXX",
-      href: "https://wa.me/+880XXXXXXXXXX",
+      value: "+8801581400986",
+      href: "https://wa.me/+8801581400986",
       color: "text-green-500",
     },
   ];

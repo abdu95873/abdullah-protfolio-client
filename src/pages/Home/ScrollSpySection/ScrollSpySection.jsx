@@ -1,13 +1,37 @@
 import { useEffect, useState, useRef } from "react";
 
 const data = [
-  { id: "worldpackers", title: "Worldpackers", content: "A world of ways to travel the world" },
-  { id: "bookify", title: "Bookify", content: "Hotel booking made simple" },
-  { id: "n26", title: "N26", content: "Modern digital banking experience" },
+  {
+    id: "omar-portfolio",
+    title: "Personal Portfolio",
+    description:
+      "A modern personal portfolio website showcasing projects, skills, and experience with a clean and responsive UI.",
+    tech: "React, Tailwind CSS, Firebase",
+    link: "https://omar-client.web.app/",
+    image: "/public/omar.png",
+  },
+  {
+    id: "shopping-complex",
+    title: "Shopping Complex Web App",
+    description:
+      "A full-stack MERN application simulating a shopping complex with dynamic UI, product listings, and scalable architecture.",
+    tech: "MERN Stack, Node.js, MongoDB",
+    link: "https://shopping-complex-8cd2e.web.app/",
+    image: "/public/rohman.png",
+  },
+  {
+  id: "royal-express",
+  title: "Royal Express Web App",
+  description:
+    "A modern web application for Royal Express, a city courier service that allows users to book deliveries, track parcels, and manage shipments with ease.",
+  tech: "React, Tailwind CSS, UI Design",
+  link: "https://royal-express-671bc.web.app/",
+  image: "/public/royal.png",
+},
 ];
 
 export default function ScrollSpySection() {
-  const [activeId, setActiveId] = useState("worldpackers");
+  const [activeId, setActiveId] = useState(data[0].id);
   const sectionsRef = useRef([]);
 
   useEffect(() => {
@@ -28,8 +52,8 @@ export default function ScrollSpySection() {
 
   return (
     <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 py-16 gap-8">
-      {/* LEFT: Titles (hidden on mobile & tablet) */}
-      <div className="hidden lg:flex lg:flex-col gap-4 sticky top-20 w-1/4">
+      {/* LEFT: Titles */}
+      <div className="hidden lg:flex lg:flex-col gap-4 sticky top-20 w-1/4 self-start">
         {data.map((item) => (
           <div
             key={item.id}
@@ -42,17 +66,40 @@ export default function ScrollSpySection() {
         ))}
       </div>
 
-      {/* RIGHT: Cards */}
+      {/* RIGHT: Cards with image background */}
       <div className="w-full lg:w-3/4 flex flex-col gap-8">
         {data.map((item, index) => (
           <div
             key={item.id}
             id={item.id}
             ref={(el) => (sectionsRef.current[index] = el)}
-            className="bg-white p-6 rounded-lg shadow-md"
+            className="relative rounded-lg overflow-hidden shadow-md h-64 md:h-80"
           >
-            <h2 className="text-xl font-bold mb-2">{item.title}</h2>
-            <p className="text-gray-700">{item.content}</p>
+            {/* Image as background */}
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover"
+              />
+            )}
+
+            {/* Overlay for readability */}
+            <div className="absolute inset-0 bg-black/30"></div>
+
+            {/* Text on top */}
+            <div className="absolute inset-0 flex flex-col justify-end items-start p-6 text-white">
+              <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
+              <p className="text-sm mb-2">Tech: {item.tech}</p>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 underline text-sm"
+              >
+                View Project
+              </a>
+            </div>
           </div>
         ))}
       </div>
