@@ -23,7 +23,7 @@ const About = () => {
 
         {/* RIGHT: Text Content */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4 px-4 lg:px-12">
-          <span className="text-orange-500 uppercase tracking-wide text-sm">About Me</span>
+          <span className="text-orange-600 font-semibold mb-2">ABOUT ME</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Web Developer</h2>
           
           <p className="text-gray-600 leading-relaxed">
