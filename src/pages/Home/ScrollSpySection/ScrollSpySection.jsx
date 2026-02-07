@@ -8,7 +8,7 @@ const data = [
       "A modern personal portfolio website showcasing projects, skills, and experience with a clean and responsive UI.",
     tech: "React, Tailwind CSS, Firebase",
     link: "https://omar-client.web.app/",
-    image: "/public/omar.png",
+    image: "/omar.png",
   },
   {
     id: "shopping-complex",
@@ -17,7 +17,7 @@ const data = [
       "A full-stack MERN application simulating a shopping complex with dynamic UI, product listings, and scalable architecture.",
     tech: "MERN Stack, Node.js, MongoDB",
     link: "https://shopping-complex-8cd2e.web.app/",
-    image: "/public/rohman.png",
+    image: "/rohman.png",
   },
   {
   id: "royal-express",
@@ -26,8 +26,18 @@ const data = [
     "A modern web application for Royal Express, a city courier service that allows users to book deliveries, track parcels, and manage shipments with ease.",
   tech: "React, Tailwind CSS, UI Design",
   link: "https://royal-express-671bc.web.app/",
-  image: "/public/royal.png",
+  image: "/royal.png",
 },
+{
+  id: "profast",
+  title: "ProFast Courier Web App",
+  description:
+    "A practice project simulating a city courier service with instant delivery, parcel tracking, and rider management. Designed to demonstrate UI/UX and responsive web design skills.",
+  tech: "React, Tailwind CSS, UI Design",
+  link: "https://zep-shift-a74e9.web.app/", // you can update with deployed URL later
+  image: "/profast.png", // save the screenshot as this file
+},
+
 ];
 
 export default function ScrollSpySection() {
@@ -53,7 +63,7 @@ export default function ScrollSpySection() {
   return (
     <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 py-16 gap-8">
       {/* LEFT: Titles */}
-      <div className="hidden lg:flex lg:flex-col gap-4 sticky top-20 w-1/4 self-start">
+      <div className="hidden lg:flex lg:flex-col gap-4 sticky top-28 w-1/4 self-start">
         {data.map((item) => (
           <div
             key={item.id}
