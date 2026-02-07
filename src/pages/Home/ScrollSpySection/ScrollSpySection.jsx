@@ -77,42 +77,42 @@ export default function ScrollSpySection() {
       </div>
 
       {/* RIGHT: Cards with image background */}
-      <div className="w-full lg:w-3/4 flex flex-col gap-8">
-        {data.map((item, index) => (
-          <div
-            key={item.id}
-            id={item.id}
-            ref={(el) => (sectionsRef.current[index] = el)}
-            className="relative rounded-lg overflow-hidden shadow-md h-64 md:h-80"
-          >
-            {/* Image as background */}
-            {item.image && (
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover"
-              />
-            )}
+      <div className="w-full flex flex-col gap-8">
+  {data.map((item, index) => (
+    <div
+      key={item.id}
+      id={item.id}
+      ref={(el) => (sectionsRef.current[index] = el)}
+      className="relative rounded-lg overflow-hidden shadow-md"
+    >
+      {item.image && (
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-auto object-contain"
+        />
+      )}
 
-            {/* Overlay for readability */}
-            <div className="absolute inset-0 bg-black/30"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-            {/* Text on top */}
-            <div className="absolute inset-0 flex flex-col justify-end items-start p-6 text-white">
-              <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
-              <p className="text-sm mb-2">Tech: {item.tech}</p>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 underline text-sm"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-        ))}
+      {/* Text */}
+      <div className="absolute inset-0 flex flex-col justify-end items-start p-6 text-white">
+        <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
+        <p className="text-sm mb-2">Tech: {item.tech}</p>
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 underline text-sm"
+        >
+          View Project
+        </a>
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }
