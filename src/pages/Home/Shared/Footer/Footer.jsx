@@ -33,7 +33,7 @@ const Footer = () => {
           <p className="text-gray-700 font-medium">Get in touch:</p>
           <div className="flex gap-4 mt-2">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/abdu95873"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -41,7 +41,7 @@ const Footer = () => {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/abdu95873"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -49,7 +49,7 @@ const Footer = () => {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="https://wa.me/+880XXXXXXXXXX"
+              href="https://wa.me/+8801581400986"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-green-500 transition-colors"
