@@ -61,7 +61,7 @@ export default function ScrollSpySection() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 py-16 gap-8">
+    <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 pt-16 gap-8">
       {/* LEFT: Titles */}
       <div className="hidden lg:flex lg:flex-col gap-4 sticky top-28 w-1/4 self-start">
         {data.map((item) => (
@@ -98,8 +98,8 @@ export default function ScrollSpySection() {
 
       {/* Text */}
       <div className="absolute inset-0 flex flex-col justify-end items-start p-6 text-white">
-        <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
-        <p className="text-sm mb-2">Tech: {item.tech}</p>
+        <h2 className=" text-2xl font-bold mb-2">{item.title}</h2>
+        <p className="hidden md:block text-sm mb-2">Tech: {item.tech}</p>
         <a
           href={item.link}
           target="_blank"

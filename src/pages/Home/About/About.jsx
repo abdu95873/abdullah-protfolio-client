@@ -6,20 +6,17 @@ const About = () => {
     <section className="w-full py-24 px-6 bg-white">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
         
-        {/* LEFT: Profile Image + Experience Badge */}
-        <div className="w-full lg:w-1/2 relative flex justify-center mb-12 lg:mb-0">
-          <img
-            src={profileImg}
-            alt="Abdullah"
-            className=" h-fit object-cover"
-          />
-          {/* Experience Badge */}
-          {/* <div className="absolute bottom-4 right-0 bg-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-md">
-            <span className="text-gray-400 text-xs text-center">Years of</span>
-            <span className="text-blue-600 text-xl font-bold">4</span>
-            <span className="text-gray-400 text-xs text-center">Experience</span>
-          </div> */}
-        </div>
+       {/* LEFT: Profile Image + Experience Badge */}
+{/* LEFT: Profile Image */}
+<div className="hidden md:flex w-full lg:w-1/2 relative justify-center mb-12 lg:mb-0
+                h-[260px] md:h-[320px] lg:h-[380px]">
+  <img
+    src={profileImg}
+    alt="Abdullah"
+    className="h-full object-contain"
+  />
+</div>
+
 
         {/* RIGHT: Text Content */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4 px-4 lg:px-12">
@@ -43,14 +40,14 @@ const About = () => {
           </ul>
 
           {/* Signature */}
-          <div className="mt-4 text-indigo-900 font-handwriting text-xl">
+          <div className="mt-4 text-indigo-900 italic font-handwriting text-xl">
             Abdullah
           </div>
 
           {/* Download CV Button */}
-          <button className="mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition w-max">
+          {/* <button className="mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition w-max">
             Download CV
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

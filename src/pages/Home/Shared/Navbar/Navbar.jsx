@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const menuItems = ["Home", "About", "Services", "Portfolio", "Contact"];
-const staggerItems = ["Portfolio", "Contact"]; // items to show first
+const menuItems = ["About", "Experience", "Services","Projects", "Contact"]; // all menu items
+const staggerItems = ["About", "Contact"]; // items to show first
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

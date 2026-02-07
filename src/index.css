@@ -12,14 +12,14 @@
 }
 
 /* Body background */
-body {
+/* body {
   margin: 0;
   min-height: 100vh;
   background-color: white;
   background-image: radial-gradient(rgba(0, 0, 0, 0.055) 2px, transparent 2px);
   background-size: 30px 30px;
   background-attachment: fixed;
-}
+} */
 
 /* Global container for device widths */
 .container {

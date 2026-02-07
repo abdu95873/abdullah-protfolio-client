@@ -80,42 +80,45 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Right Side - Feature Cards */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-          {/* Left Column */}
-          <div className="flex flex-col gap-8 pt-16">
-            {features
-              .filter((_, i) => i === 0 || i === 4)
-              .map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white h-52 w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center hover:shadow-xl transition"
-                >
-                  {feature.icon}
-                  <h3 className="mt-4 font-semibold">
-                    {feature.title}
-                  </h3>
-                </div>
-              ))}
-          </div>
+    {/* Right Side - Feature Cards */}
+<div className="grid grid-cols-1 md:grid-cols-2 md:my-auto gap-x-8 gap-y-6">
 
-          {/* Right Column */}
-          <div className="flex flex-col gap-8 -ml-4">
-            {features
-              .filter((_, i) => i !== 0 && i !== 4)
-              .map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white h-52 w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center hover:shadow-xl transition"
-                >
-                  {feature.icon}
-                  <h3 className="mt-4 font-semibold">
-                    {feature.title}
-                  </h3>
-                </div>
-              ))}
-          </div>
+  {/* Left Column */}
+  <div className="flex flex-col gap-8 pt-16">
+    {features
+      .filter((_, i) => i === 0 || i === 4)
+      .map((feature, index) => (
+        <div
+          key={index}
+          className="bg-white w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center py-8 mx-auto hover:shadow-xl transition"
+        >
+          {feature.icon}
+          <h3 className="mt-4 font-semibold">
+            {feature.title}
+          </h3>
         </div>
+      ))}
+  </div>
+
+  {/* Right Column */}
+  <div className="flex flex-col gap-8 md:-ml-4">
+    {features
+      .filter((_, i) => i !== 0 && i !== 4)
+      .map((feature, index) => (
+        <div
+          key={index}
+          className="bg-white w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center py-8 mx-auto hover:shadow-xl transition"
+        >
+          {feature.icon}
+          <h3 className="mt-4 font-semibold">
+            {feature.title}
+          </h3>
+        </div>
+      ))}
+  </div>
+
+</div>
+
       </div>
     </section>
   );
