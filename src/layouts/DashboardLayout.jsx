@@ -19,7 +19,7 @@ import {
 import instituteLogo from "../assets/banner/banner1.png";
 import useAxios from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 
@@ -27,18 +27,10 @@ const DashboardLayout = () => {
     const location = useLocation();
     const Axios = useAxios();
     const navigate = useNavigate();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [userName, setUserName] = useState("");
-    const [userLname, setUserLname] = useState("");
-    const [userRole, setUserRole] = useState("");
-    const [userBranch, setUserBranch] = useState("");
+    const [userName] = useState("");
+    const [userLname] = useState("");
+    const [userRole] = useState("");
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
-    const getAuthHeaders = () => {
-        return {
-            "Content-Type": "application/json",
-        };
-    };
 
     // const fetchUserInfo = async () => {
     //     try {
@@ -90,7 +82,6 @@ const DashboardLayout = () => {
                         showConfirmButton: false,
                     });
                     setTimeout(() => {
-                        setIsAuthenticated(false);
                         navigate("/");
                     }, 1500);
                 }
@@ -126,7 +117,7 @@ const DashboardLayout = () => {
                     path: "/dashboard/myParcels",
                     icon: BookOpen,
                     label: "কোর্স তালিকা",
-                    color: "purple",
+                    color: "sky",
                 },
                 {
                     path: "/dashboard/add-course",
@@ -143,13 +134,13 @@ const DashboardLayout = () => {
                     path: "/dashboard/students-list",
                     icon: GraduationCap,
                     label: "শিক্ষার্থী তালিকা",
-                    color: "green",
+                    color: "cyan",
                 },
                 {
                     path: "/dashboard/add-student",
                     icon: UserPlus,
                     label: "শিক্ষার্থী যোগ করুন",
-                    color: "teal",
+                    color: "blue",
                 }
             ],
         },
@@ -160,13 +151,13 @@ const DashboardLayout = () => {
                     path: "/dashboard/create-certificates",
                     icon: Award,
                     label: "সার্টিফিকেট তৈরি করুন",
-                    color: "orange",
+                    color: "indigo",
                 },
                 {
                     path: "/dashboard/certificate-list",
                     icon: FileText,
                     label: "সার্টিফিকেট রেকর্ড",
-                    color: "amber",
+                    color: "sky",
                 },
             ],
         },
@@ -177,13 +168,13 @@ const DashboardLayout = () => {
                     path: "/dashboard/user-management",
                     icon: UserCog,
                     label: "ইউজার ম্যানেজমেন্ট",
-                    color: "red",
+                    color: "slate",
                 },
                 {
                     path: "/dashboard/finance-management",
                     icon: Settings,
                     label: "Finance Management",
-                    color: "gray",
+                    color: "blue",
                 },
             ],
         },
@@ -194,33 +185,18 @@ const DashboardLayout = () => {
             blue: isActive
                 ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/50"
                 : "text-blue-600 hover:bg-blue-50",
-            purple: isActive
-                ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg shadow-purple-500/50"
-                : "text-purple-600 hover:bg-purple-50",
             indigo: isActive
                 ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/50"
                 : "text-indigo-600 hover:bg-indigo-50",
-            green: isActive
-                ? "bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg shadow-green-500/50"
-                : "text-green-600 hover:bg-green-50",
-            teal: isActive
-                ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/50"
-                : "text-teal-600 hover:bg-teal-50",
-            yellow: isActive
-                ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg shadow-yellow-500/50"
-                : "text-yellow-600 hover:bg-yellow-50",
-            orange: isActive
-                ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/50"
-                : "text-orange-600 hover:bg-orange-50",
-            amber: isActive
-                ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/50"
-                : "text-amber-600 hover:bg-amber-50",
-            red: isActive
-                ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/50"
-                : "text-red-600 hover:bg-red-50",
-            gray: isActive
-                ? "bg-gradient-to-r from-gray-500 to-gray-600 text-white shadow-lg shadow-gray-500/50"
-                : "text-gray-600 hover:bg-gray-50",
+            sky: isActive
+                ? "bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-lg shadow-sky-500/50"
+                : "text-sky-600 hover:bg-sky-50",
+            cyan: isActive
+                ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg shadow-cyan-500/50"
+                : "text-cyan-600 hover:bg-cyan-50",
+            slate: isActive
+                ? "bg-gradient-to-r from-slate-500 to-slate-600 text-white shadow-lg shadow-slate-500/50"
+                : "text-slate-600 hover:bg-slate-50",
         };
         return colors[color] || colors.blue;
     };
@@ -231,9 +207,9 @@ const DashboardLayout = () => {
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             {/* Top Navbar */}
             <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
-                <div className="flex items-center justify-between px-4 h-20">
+                <div className="flex items-center justify-between px-3 sm:px-4 h-16 sm:h-20">
                     {/* Left: Logo & Menu Toggle */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 sm:gap-4">
                         <button
                             onClick={() => setSidebarOpen(!sidebarOpen)}
                             className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -242,9 +218,9 @@ const DashboardLayout = () => {
                         </button>
                         <Link
                             to="/dashboard"
-                            className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+                            className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-opacity"
                         >
-                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 p-1 shadow-lg">
+                            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 p-1 shadow-lg">
                                 <img
                                     src={instituteLogo}
                                     className="w-full h-full rounded-full bg-white p-1"
@@ -258,7 +234,7 @@ const DashboardLayout = () => {
                     </div>
 
                     {/* Right: User Info & Actions */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                         <div className="hidden md:flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
                             <div className="text-right">
                                 <p className="text-sm font-semibold text-gray-800">
@@ -272,14 +248,14 @@ const DashboardLayout = () => {
                         </div>
                         <Link
                             to="/"
-                            className="btn btn-sm bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-none hover:shadow-lg gap-2"
+                            className="btn btn-xs sm:btn-sm bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-none hover:shadow-lg gap-1 sm:gap-2"
                         >
                             <Home size={16} />
                             <span className="hidden sm:inline">হোম</span>
                         </Link>
                         <button
                             onClick={handleLogout}
-                            className="btn btn-sm bg-gradient-to-r from-red-500 to-red-600 text-white border-none hover:shadow-lg gap-2"
+                            className="btn btn-xs sm:btn-sm bg-gradient-to-r from-slate-600 to-slate-700 text-white border-none hover:shadow-lg gap-1 sm:gap-2"
                         >
                             <LogOut size={16} />
                             <span className="hidden sm:inline">লগআউট</span>
@@ -289,10 +265,10 @@ const DashboardLayout = () => {
             </div>
 
             {/* Sidebar & Main Content Wrapper */}
-            <div className="flex pt-20">
+            <div className="flex pt-16 sm:pt-20">
                 {/* Sidebar */}
                 <aside
-                    className={`fixed top-20 left-0 bottom-0 w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    className={`fixed top-16 sm:top-20 left-0 bottom-0 w-[82vw] max-w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
                         } lg:translate-x-0`}
                 >
                     <div className="p-6">
@@ -342,7 +318,7 @@ const DashboardLayout = () => {
                 )}
 
                 {/* Main Content */}
-                <main className="flex-1 lg:ml-72 p-6">
+                <main className="flex-1 lg:ml-72 p-3 sm:p-4 lg:p-6">
                     <div className="max-w-8xl mx-auto">
                         <Outlet />
                     </div>

@@ -7,12 +7,7 @@ import ServicesSection from "../ServicesSection/ServicesSection";
 
 export default function App() {
   return (
-
-
-    
-    <div className="bg-white text-gray-900 min-h-screen font-sans">
-
-
+    <div className="bg-white text-gray-900 min-h-screen font-sans overflow-x-hidden">
       <Banner></Banner>
 
       <About></About>

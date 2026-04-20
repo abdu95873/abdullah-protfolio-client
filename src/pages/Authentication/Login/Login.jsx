@@ -35,10 +35,10 @@ const Login = () => {
     };
 
     return (
-        <div className="flex w-full h-screen items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex w-full items-center justify-center px-4 py-8">
+            <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl mb-1">Welcome Back</h1>
+                    <h1 className="text-2xl sm:text-3xl mb-1 font-bold text-slate-900">Welcome Back</h1>
                     <p className="text-gray-600">Login with ProFast</p>
                 </div>
                 <div className="card-body">
@@ -49,7 +49,7 @@ const Login = () => {
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("email", {
                                     required: "Email is required",
                                     pattern: {
@@ -59,7 +59,7 @@ const Login = () => {
                                 })}
                             />
                             {errors.email && (
-                                <p className="text-red-500 text-sm">{errors.email.message}</p>
+                                <p className="text-blue-500 text-sm">{errors.email.message}</p>
                             )}
                         </div>
 
@@ -69,28 +69,28 @@ const Login = () => {
                             <input
                                 type="password"
                                 placeholder="Password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("password", { required: "Password is required" })}
                             />
                             {errors.password && (
-                                <p className="text-red-500 text-sm">{errors.password.message}</p>
+                                <p className="text-blue-500 text-sm">{errors.password.message}</p>
                             )}
                         </div>
 
                         {/* Forgot Password */}
                         <div className="mt-2 text-right">
-                            <Link to="/forgotPassword" className="link link-hover opacity-70">Forgot password?</Link>
+                            <Link to="/forgotPassword" className="link link-hover text-blue-600">Forgot password?</Link>
                         </div>
 
                         {/* Login Button */}
-                        <button type="submit" className="btn  w-full">
+                        <button type="submit" className="btn bg-blue-600 hover:bg-blue-700 border-blue-600 text-white w-full">
                             Login
                         </button>
 
                         {/* Register Link */}
                         <div className="flex items-center gap-2 opacity-70 ">
                             <span>Don't have any Account?</span>
-                            <Link to="/register" className="link link-hover ">Register</Link>
+                            <Link to="/register" className="link link-hover text-blue-600">Register</Link>
                         </div>
 
                         {/* Or */}

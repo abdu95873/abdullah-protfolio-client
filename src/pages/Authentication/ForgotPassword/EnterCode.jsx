@@ -41,10 +41,10 @@ const EnterCode = () => {
     };
 
     return (
-        <div className="flex w-full h-screen items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex w-full items-center justify-center px-4 py-8">
+            <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl mb-2">Enter Code</h1>
+                    <h1 className="text-2xl sm:text-3xl mb-2 font-bold text-slate-900">Enter Code</h1>
                     <p className="text-gray-600 text-sm">
                         Enter 6 digit code that we sent to your email address
                     </p>
@@ -52,7 +52,7 @@ const EnterCode = () => {
 
                 <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                     {/* Code Inputs Row */}
-                    <div className="grid grid-cols-6 gap-2 mb-4" onPaste={handlePaste}>
+                    <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-4" onPaste={handlePaste}>
                         {Array(6)
                             .fill(0)
                             .map((_, index) => (
@@ -65,7 +65,7 @@ const EnterCode = () => {
                                             {...field}
                                             type="text"
                                             maxLength="1"
-                                            className="input text-center"
+                                            className="input input-bordered h-11 sm:h-12 px-0 text-center text-sm sm:text-base focus:outline-none focus:border-blue-500"
                                             ref={(el) => (inputsRef.current[index] = el)}
                                             onChange={(e) => handleChange(e.target.value, index)}
                                             onKeyDown={(e) => handleKeyDown(e, index)}
@@ -76,7 +76,7 @@ const EnterCode = () => {
                     </div>
 
                     {/* Verify Button */}
-                    <button type="submit" className="btn  w-full">
+                    <button type="submit" className="btn bg-blue-600 hover:bg-blue-700 border-blue-600 text-white w-full">
                         Verify Code
                     </button>
                 </form>

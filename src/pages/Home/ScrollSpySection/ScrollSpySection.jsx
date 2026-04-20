@@ -44,6 +44,13 @@ export default function ScrollSpySection() {
   const [activeId, setActiveId] = useState(data[0].id);
   const sectionsRef = useRef([]);
 
+  const scrollToProject = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,58 +68,78 @@ export default function ScrollSpySection() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 pt-16 gap-8">
-      {/* LEFT: Titles */}
-      <div className="hidden lg:flex lg:flex-col gap-4 sticky top-28 w-1/4 self-start">
-        {data.map((item) => (
-          <div
-            key={item.id}
-            className={`cursor-pointer text-lg font-semibold ${
-              activeId === item.id ? "text-blue-600" : "text-gray-600"
-            }`}
-          >
-            {item.title}
-          </div>
-        ))}
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-20 bg-gradient-to-b from-white to-blue-50/30">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-6 sm:mb-10 text-center">
+          <p className="text-blue-600 font-semibold tracking-wide text-xs sm:text-base">FEATURED PROJECTS</p>
+          <h2 className="mt-1.5 sm:mt-2 text-xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+            Selected Work & Case Studies
+          </h2>
+          <p className="mt-2 sm:mt-3 text-slate-600 text-xs sm:text-base max-w-2xl mx-auto">
+            Real projects focused on clean UI, responsive experience, and production-ready architecture.
+          </p>
+        </div>
+
+        <div className="mb-5 sm:mb-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-3">
+          {data.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToProject(item.id)}
+              className={`rounded-full px-2.5 py-1 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-medium transition ${
+                activeId === item.id
+                  ? "bg-blue-600 text-white shadow"
+                  : "bg-white border border-blue-100 text-slate-700 hover:border-blue-300 hover:text-blue-700"
+              }`}
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6">
+          {data.map((item, index) => (
+            <article
+              key={item.id}
+              id={item.id}
+              ref={(el) => (sectionsRef.current[index] = el)}
+              className="group relative overflow-hidden rounded-2xl border border-blue-100/80 bg-white/90 backdrop-blur shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-100/60"
+            >
+              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.14),transparent_45%)]"></div>
+              <div className="relative">
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-40 sm:h-56 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                )}
+                <div className="absolute left-2.5 top-2.5 rounded-full bg-slate-900/70 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white backdrop-blur">
+                  {item.tech}
+                </div>
+                <div className="absolute right-2.5 top-2.5 rounded-full border border-white/50 bg-white/20 px-2 py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur">
+                  0{index + 1}
+                </div>
+              </div>
+
+              <div className="relative p-3.5 sm:p-5">
+                <h3 className="text-base sm:text-xl font-bold text-slate-900 tracking-tight">{item.title}</h3>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-[15px] leading-relaxed text-slate-600 line-clamp-3 min-h-[56px] sm:min-h-[68px]">
+                  {item.description}
+                </p>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 sm:mt-4 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
+                >
+                  View Live Project
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-
-      {/* RIGHT: Cards with image background */}
-      <div className="w-full flex flex-col gap-8">
-  {data.map((item, index) => (
-    <div
-      key={item.id}
-      id={item.id}
-      ref={(el) => (sectionsRef.current[index] = el)}
-      className="relative rounded-lg overflow-hidden shadow-md"
-    >
-      {item.image && (
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-auto object-contain"
-        />
-      )}
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
-
-      {/* Text */}
-      <div className="absolute inset-0 flex flex-col justify-end items-start p-6 text-white">
-        <h2 className=" text-2xl font-bold mb-2">{item.title}</h2>
-        <p className="hidden md:block text-sm mb-2">Tech: {item.tech}</p>
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-400 underline text-sm"
-        >
-          View Project
-        </a>
-      </div>
-    </div>
-  ))}
-</div>
-
-    </div>
+    </section>
   );
 }

@@ -19,40 +19,40 @@ const skills = [
 
 const features = [
   {
-    icon: <CheckCircleIcon className="w-8 h-8 text-orange-600" />,
+    icon: <CheckCircleIcon className="w-8 h-8 text-blue-600" />,
     title: "Research & Planning",
   },
   {
-    icon: <PencilIcon className="w-8 h-8 text-orange-600" />,
+    icon: <PencilIcon className="w-8 h-8 text-blue-600" />,
     title: "UI / UX Design",
   },
   {
-    icon: <CodeBracketIcon className="w-8 h-8 text-orange-600" />,
+    icon: <CodeBracketIcon className="w-8 h-8 text-blue-600" />,
     title: "MERN Development",
   },
   {
-    icon: <WrenchIcon className="w-8 h-8 text-orange-600" />,
+    icon: <WrenchIcon className="w-8 h-8 text-blue-600" />,
     title: "Maintenance & Support",
   },
   {
-    icon: <StarIcon className="w-8 h-8 text-orange-600" />,
+    icon: <StarIcon className="w-8 h-8 text-blue-600" />,
     title: "Code Quality",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 px-6 md:px-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-blue-50/40">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
         {/* Left Side */}
-        <div className="px-16">
-          <p className="text-orange-600 font-semibold mb-2">SERVICES</p>
+        <div className="px-0 sm:px-2">
+          <p className="text-blue-600 font-semibold mb-1 sm:mb-2 text-xs sm:text-sm">SERVICES</p>
 
-          <h2 className="text-3xl font-bold mb-4 leading-snug">
+          <h2 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4 leading-snug text-slate-900">
             Full-Cycle MERN Stack <br /> Web Development Services
           </h2>
 
-          <p className="text-gray-500 mb-6 leading-relaxed">
+          <p className="text-slate-600 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
             I’m a MERN Stack Developer specializing in building scalable,
             high-performance web applications using MongoDB, Express, React,
             and Node.js. I focus on clean architecture, modern UI, and
@@ -60,18 +60,18 @@ const ServicesSection = () => {
           </p>
 
           {/* Skill bars */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {skills.map((skill, index) => (
               <div key={index}>
                 <div className="flex justify-between mb-1">
-                  <span className="font-medium text-gray-700">
+                  <span className="font-medium text-gray-700 text-xs sm:text-base">
                     {skill.name}
                   </span>
-                  <span className="text-gray-500">{skill.level}%</span>
+                  <span className="text-gray-500 text-xs sm:text-sm">{skill.level}%</span>
                 </div>
                 <div className="w-full bg-gray-200 h-1 rounded-full">
                   <div
-                    className="bg-orange-600 h-1 rounded-full transition-all duration-700"
+                    className="bg-blue-600 h-1 rounded-full transition-all duration-700"
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -81,42 +81,18 @@ const ServicesSection = () => {
         </div>
 
     {/* Right Side - Feature Cards */}
-<div className="grid grid-cols-1 md:grid-cols-2 md:my-auto gap-x-8 gap-y-6">
-
-  {/* Left Column */}
-  <div className="flex flex-col gap-8 pt-16">
-    {features
-      .filter((_, i) => i === 0 || i === 4)
-      .map((feature, index) => (
-        <div
-          key={index}
-          className="bg-white w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center py-8 mx-auto hover:shadow-xl transition"
-        >
-          {feature.icon}
-          <h3 className="mt-4 font-semibold">
-            {feature.title}
-          </h3>
-        </div>
-      ))}
-  </div>
-
-  {/* Right Column */}
-  <div className="flex flex-col gap-8 md:-ml-4">
-    {features
-      .filter((_, i) => i !== 0 && i !== 4)
-      .map((feature, index) => (
-        <div
-          key={index}
-          className="bg-white w-52 rounded-2xl shadow-md flex flex-col items-center justify-center text-center py-8 mx-auto hover:shadow-xl transition"
-        >
-          {feature.icon}
-          <h3 className="mt-4 font-semibold">
-            {feature.title}
-          </h3>
-        </div>
-      ))}
-  </div>
-
+<div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-5 md:my-auto">
+  {features.map((feature, index) => (
+    <div
+      key={index}
+      className="bg-white min-h-28 sm:min-h-36 rounded-2xl border border-blue-100 shadow-sm flex flex-col items-center justify-center text-center py-4 sm:py-6 px-3 sm:px-4 hover:shadow-md transition"
+    >
+      <div className="scale-75 sm:scale-100">{feature.icon}</div>
+      <h3 className="mt-3 font-semibold text-slate-800 text-sm sm:text-base">
+        {feature.title}
+      </h3>
+    </div>
+  ))}
 </div>
 
       </div>

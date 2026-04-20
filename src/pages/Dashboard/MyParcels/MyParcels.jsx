@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import React from 'react';
 
 const MyParcels = () => {
     const { user } = useAuth();
@@ -57,7 +56,7 @@ const MyParcels = () => {
                 } else {
                     Swal.fire("Failed!", "Parcel could not be deleted.", "error");
                 }
-            } catch (error) {
+            } catch {
                 Swal.fire("Error", "Something went wrong while deleting.", "error");
             }
             refetch()
@@ -71,7 +70,7 @@ const MyParcels = () => {
 
     return (
         <div className="overflow-x-auto w-full">
-            <h1 className="text-2xl font-bold mb-4">My Parcels ({data.length})</h1>
+            <h1 className="text-xl sm:text-2xl font-bold mb-4">My Parcels ({data.length})</h1>
             <table className="table w-full">
                 <thead>
                     <tr>
@@ -94,28 +93,28 @@ const MyParcels = () => {
                             <td>{parcel.cost}</td>
                             <td>
                                 <span
-                                    className={`px-2 py-1 rounded-lg font-semibold text-white ${parcel.payment_status === "paid" ? "bg-green-500" : "bg-red-500"
+                                    className={`px-2 py-1 rounded-lg font-semibold text-white ${parcel.payment_status === "paid" ? "bg-blue-600" : "bg-slate-500"
                                         }`}
                                 >
                                     {parcel.payment_status}
                                 </span>
                             </td>
-                            <td className="flex gap-2">
+                            <td className="flex flex-wrap gap-2 min-w-[170px]">
                                 <button
-                                    className="btn btn-sm btn-info"
+                                    className="btn btn-xs sm:btn-sm bg-blue-500 hover:bg-blue-600 border-blue-500 text-white"
                                     onClick={() => handleView(parcel)}
                                 >
                                     View
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-success"
+                                    className="btn btn-xs sm:btn-sm bg-indigo-500 hover:bg-indigo-600 border-indigo-500 text-white"
                                     onClick={() => handlePay(parcel)}
                                     disabled={parcel.payment_status === "paid"}
                                 >
                                     Pay
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-error"
+                                    className="btn btn-xs sm:btn-sm bg-sky-600 hover:bg-sky-700 border-sky-600 text-white"
                                     onClick={() => handleDelete(parcel)}
                                 >
                                     Delete

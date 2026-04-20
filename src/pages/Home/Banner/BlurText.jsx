@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 const buildKeyframes = (from, steps) => {
@@ -95,7 +95,7 @@ const BlurText = ({
       className={`flex flex-wrap will-change-transform ${className}`}
     >
       {elements.map((segment, index) => (
-        <motion.span
+        <Motion.span
           key={index}
           className="inline-block will-change-[transform,filter,opacity]"
           initial={from}
@@ -112,7 +112,7 @@ const BlurText = ({
         >
           {segment === " " ? "\u00A0" : segment}
           {animateBy === "words" && index < elements.length - 1 && "\u00A0"}
-        </motion.span>
+        </Motion.span>
       ))}
     </Tag>
   );

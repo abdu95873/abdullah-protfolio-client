@@ -31,10 +31,10 @@ const Register = () => {
     const password = watch("password");
 
     return (
-        <div className="flex w-full h-screen items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex w-full items-center justify-center px-4 py-8">
+            <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl mb-1">Create an Account</h1>
+                    <h1 className="text-2xl sm:text-3xl mb-1 font-bold text-slate-900">Create an Account</h1>
                     <p className="text-gray-600">Register with ProFast</p>
                 </div>
 
@@ -46,11 +46,11 @@ const Register = () => {
                             <input
                                 type="text"
                                 placeholder="Name"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("name", { required: "Name is required" })}
                             />
                             {errors.name && (
-                                <p className="text-red-500 text-sm">{errors.name.message}</p>
+                                <p className="text-blue-500 text-sm">{errors.name.message}</p>
                             )}
                         </div>
 
@@ -60,7 +60,7 @@ const Register = () => {
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("email", {
                                     required: "Email is required",
                                     pattern: {
@@ -70,7 +70,7 @@ const Register = () => {
                                 })}
                             />
                             {errors.email && (
-                                <p className="text-red-500 text-sm">{errors.email.message}</p>
+                                <p className="text-blue-500 text-sm">{errors.email.message}</p>
                             )}
                         </div>
 
@@ -80,7 +80,7 @@ const Register = () => {
                             <input
                                 type="password"
                                 placeholder="Password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("password", {
                                     required: "Password is required",
                                     minLength: {
@@ -90,7 +90,7 @@ const Register = () => {
                                 })}
                             />
                             {errors.password && (
-                                <p className="text-red-500 text-sm">{errors.password.message}</p>
+                                <p className="text-blue-500 text-sm">{errors.password.message}</p>
                             )}
                         </div>
 
@@ -100,7 +100,7 @@ const Register = () => {
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("confirmPassword", {
                                     required: "Please confirm your password",
                                     validate: (value) =>
@@ -108,7 +108,7 @@ const Register = () => {
                                 })}
                             />
                             {errors.confirmPassword && (
-                                <p className="text-red-500 text-sm">
+                                <p className="text-blue-500 text-sm">
                                     {errors.confirmPassword.message}
                                 </p>
                             )}
@@ -116,18 +116,18 @@ const Register = () => {
 
                         {/* Forgot Password */}
                         <div className="mt-2 text-right">
-                            <a className="link link-hover opacity-70">Forgot password?</a>
+                            <a className="link link-hover text-blue-600">Forgot password?</a>
                         </div>
 
                         {/* Register Button */}
-                        <button type="submit" className="btn  w-full">
+                        <button type="submit" className="btn bg-blue-600 hover:bg-blue-700 border-blue-600 text-white w-full">
                             Register
                         </button>
 
                         {/* Login Link */}
                         <div className="flex items-center gap-2 opacity-70 ">
                             <span>Already have an Account?</span>
-                            <Link to="/login" className="link link-hover ">
+                            <Link to="/login" className="link link-hover text-blue-600">
                                 Login
                             </Link>
                         </div>

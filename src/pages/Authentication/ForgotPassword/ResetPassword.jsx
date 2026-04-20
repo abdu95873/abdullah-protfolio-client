@@ -17,12 +17,12 @@ const ResetPassword = () => {
     const newPassword = watch("newPassword");
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex items-center justify-center px-4 py-8 w-full">
+            <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
 
                 {/* Header */}
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl font-bold">Reset Password</h1>
+                    <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Reset Password</h1>
                     <p className="text-gray-600">Reset your password</p>
                 </div>
 
@@ -35,7 +35,7 @@ const ResetPassword = () => {
                             <input
                                 type="password"
                                 placeholder="New Password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("newPassword", {
                                     required: "Password is required",
                                     minLength: {
@@ -45,7 +45,7 @@ const ResetPassword = () => {
                                 })}
                             />
                             {errors.newPassword && (
-                                <p className="text-red-500 text-sm">
+                                <p className="text-blue-500 text-sm">
                                     {errors.newPassword.message}
                                 </p>
                             )}
@@ -57,7 +57,7 @@ const ResetPassword = () => {
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full focus:outline-none focus:border-blue-500"
                                 {...register("confirmPassword", {
                                     required: "Please confirm your password",
                                     validate: (value) =>
@@ -65,13 +65,13 @@ const ResetPassword = () => {
                                 })}
                             />
                             {errors.confirmPassword && (
-                                <p className="text-red-500 text-sm">
+                                <p className="text-blue-500 text-sm">
                                     {errors.confirmPassword.message}
                                 </p>
                             )}
                         </div>
 
-                        <button className="btn  w-full mt-4">
+                        <button className="btn bg-blue-600 hover:bg-blue-700 border-blue-600 text-white w-full mt-4">
                             Reset Password
                         </button>
                     </form>
