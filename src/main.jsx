@@ -1,24 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode, Suspense } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import { RouterProvider } from "react-router/dom";
-import router from './router/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import AuthProvider from './contexts/AuthContext/AuthProvider';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import router from "./router/router";
 
-AOS.init();
-const queryClient = new QueryClient();
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider
-          router={router}
-        />
-      </AuthProvider>
-    </QueryClientProvider>
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-white">
+          <span className="loading loading-dots loading-lg text-blue-600" />
+        </div>
+      }
+    >
+      <RouterProvider router={router} />
+    </Suspense>
   </StrictMode>
 );

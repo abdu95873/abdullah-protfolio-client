@@ -1,18 +1,20 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import Navbar from '../pages/Home/Shared/Navbar/Navbar';
-import Footer from '../pages/Home/Shared/Footer/Footer';
+import { Outlet } from "react-router";
+import PortfolioProvider from "../contexts/PortfolioContext/PortfolioProvider";
+import Navbar from "../pages/Home/Shared/Navbar/Navbar";
+import Footer from "../pages/Home/Shared/Footer/Footer";
 
 const RootLayout = () => {
-    return (
-        <div className='min-h-screen bg-white'>
-            <Navbar></Navbar>
-            <main className="pt-[72px]">
-                <Outlet></Outlet>
-            </main>
-            <Footer></Footer>
-        </div>
-    );
+  return (
+    <PortfolioProvider>
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <main className="pt-[72px]">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </PortfolioProvider>
+  );
 };
 
 export default RootLayout;

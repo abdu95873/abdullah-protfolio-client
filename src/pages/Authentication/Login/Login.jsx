@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
-import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
 import { useLocation } from "react-router";
 
@@ -17,7 +16,7 @@ const Login = () => {
     const { signInUser } = useAuth();
     const location = useLocation(); // <-- Added this
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/dashboard';
 
 
     const onSubmit = (data) => {
@@ -39,7 +38,7 @@ const Login = () => {
             <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
                 <div className="px-6 pt-6">
                     <h1 className="text-2xl sm:text-3xl mb-1 font-bold text-slate-900">Welcome Back</h1>
-                    <p className="text-gray-600">Login with ProFast</p>
+                    <p className="text-gray-600">Admin login — manage portfolio content</p>
                 </div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -87,19 +86,9 @@ const Login = () => {
                             Login
                         </button>
 
-                        {/* Register Link */}
-                        <div className="flex items-center gap-2 opacity-70 ">
-                            <span>Don't have any Account?</span>
-                            <Link to="/register" className="link link-hover text-blue-600">Register</Link>
-                        </div>
-
-                        {/* Or */}
-                        <div>
-                            <h1 className="text-center opacity-50">Or</h1>
-                        </div>
-                        <div>
-                            <SocialLogin></SocialLogin>
-                        </div>
+                        <p className="text-center text-xs text-slate-500">
+                            Only the admin account can access the dashboard.
+                        </p>
                     </form>
                 </div>
             </div>

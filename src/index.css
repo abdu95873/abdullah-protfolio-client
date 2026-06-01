@@ -3,6 +3,23 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@keyframes blur-in {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-blur-in {
+  animation: blur-in 0.65s ease-out forwards;
+}
+
 /* Font setup */
 .font-urbanist {
   font-family: "Urbanist", sans-serif;

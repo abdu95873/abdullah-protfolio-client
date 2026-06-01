@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import ProFastLogo from '../Logo/ProFastLogo';
 
@@ -13,7 +13,10 @@ const Footer = () => {
             Abdullah - Web Developer
           </p>
           <p className="text-gray-500 text-xs sm:text-sm">
-            © {new Date().getFullYear()} All rights reserved
+            © {new Date().getFullYear()} All rights reserved ·{' '}
+            <Link to="/login" className="text-blue-600 hover:underline">
+              Admin
+            </Link>
           </p>
         </div>
         

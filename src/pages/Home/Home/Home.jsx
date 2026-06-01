@@ -1,29 +1,25 @@
-import Contact from "../Contact/Contact";
-import Experience from "../Experience/Experience";
+import { lazy, Suspense } from "react";
 import Banner from "../Banner/Banner";
-import ScrollSpySection from "../ScrollSpySection/ScrollSpySection";
-import About from "../About/About";
-import ServicesSection from "../ServicesSection/ServicesSection";
 
-export default function App() {
+const About = lazy(() => import("../About/About"));
+const ServicesSection = lazy(() => import("../ServicesSection/ServicesSection"));
+const Experience = lazy(() => import("../Experience/Experience"));
+const Contact = lazy(() => import("../Contact/Contact"));
+const ScrollSpySection = lazy(() => import("../ScrollSpySection/ScrollSpySection"));
+
+const SectionFallback = () => <div className="min-h-24" aria-hidden="true" />;
+
+export default function Home() {
   return (
     <div className="bg-white text-gray-900 min-h-screen font-sans overflow-x-hidden">
-      <Banner></Banner>
-
-      <About></About>
-
-      {/* SKILLS */}
-     <ServicesSection></ServicesSection>
-
-      
-      {/* EXPERIENCE */}
-      <Experience></Experience>
-
-      {/* CONTACT */}
-      <Contact></Contact>
-
-   <ScrollSpySection></ScrollSpySection>
-    
+      <Banner />
+      <Suspense fallback={<SectionFallback />}>
+        <About />
+        <ServicesSection />
+        <Experience />
+        <Contact />
+        <ScrollSpySection />
+      </Suspense>
     </div>
   );
 }
