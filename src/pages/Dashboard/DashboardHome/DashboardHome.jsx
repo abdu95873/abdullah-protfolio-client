@@ -7,15 +7,9 @@ import {
   FolderKanban,
   Mail,
   ExternalLink,
-  Database,
-  Loader2,
+  FileCode2,
 } from "lucide-react";
-import { useState } from "react";
-import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
-import usePortfolio from "../../../hooks/usePortfolio";
-import { syncImgbbPortfolioToFirestore } from "../../../utils/syncImgbbToFirestore";
-import { getFirestoreErrorMessage } from "../../../utils/firestoreSanitize";
 import PageHeader from "../components/PageHeader";
 import FormSection from "../components/FormSection";
 
@@ -30,94 +24,39 @@ const sections = [
 
 const DashboardHome = () => {
   const { user } = useAuth();
-  const { documentExists, loading } = usePortfolio();
-  const [syncing, setSyncing] = useState(false);
-
-  const handleInitialize = async () => {
-    setSyncing(true);
-    try {
-      await syncImgbbPortfolioToFirestore();
-      sessionStorage.removeItem("portfolio_content_v1");
-      await Swal.fire({
-        icon: "success",
-        title: "Database initialized",
-        html: "Collection <b>portfolio</b> → document <b>content</b> created.<br/>Refresh Firebase Console Data tab.",
-        confirmButtonText: "OK",
-      });
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Setup failed",
-        text: getFirestoreErrorMessage(err),
-      });
-    } finally {
-      setSyncing(false);
-    }
-  };
 
   return (
     <div className="pb-8">
       <PageHeader
         title="Overview"
-        description={`Signed in as ${user?.email}. Manage your portfolio content below.`}
+        description={`Signed in as ${user?.email}. Portfolio content is hardcoded — no Firebase needed for the live site.`}
       />
 
-      {!loading && !documentExists && (
-        <div className="mb-6 rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50 p-5 sm:p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-200 text-amber-800">
-              <Database size={24} />
-            </div>
-            <div className="flex-1">
-              <h2 className="text-lg font-bold text-amber-900">Firestore is empty — first-time setup</h2>
-              <p className="mt-1 text-sm text-amber-800/90">
-                Your Firebase database is ready but has no data yet. Click below to create{" "}
-                <code className="rounded bg-amber-100 px-1">portfolio / content</code> with all
-                default content and ImgBB images.
-              </p>
-              <p className="mt-2 text-xs text-amber-700">
-                Before clicking: Firestore → <strong>Rules</strong> → publish admin rules → you must be
-                logged in as <strong>abdu95873@gmail.com</strong>.
-              </p>
-              <button
-                type="button"
-                disabled={syncing}
-                onClick={handleInitialize}
-                className="btn mt-4 gap-2 border-none bg-amber-600 text-white hover:bg-amber-700"
-              >
-                {syncing ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" />
-                    Creating...
-                  </>
-                ) : (
-                  <>
-                    <Database size={18} />
-                    Initialize database
-                  </>
-                )}
-              </button>
-            </div>
+      <div className="mb-6 rounded-2xl border border-blue-200 bg-blue-50 p-5 sm:p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-200 text-blue-800">
+            <FileCode2 size={24} />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-lg font-bold text-blue-900">Hardcoded content</h2>
+            <p className="mt-1 text-sm text-blue-800/90">
+              All portfolio data lives in{" "}
+              <code className="rounded bg-blue-100 px-1.5 py-0.5 text-xs">
+                src/data/defaultPortfolio.js
+              </code>
+              . Edit that file, push to GitHub, and Vercel will redeploy with the new content.
+            </p>
+            <p className="mt-2 text-xs text-blue-700">
+              Images use URLs from{" "}
+              <code className="rounded bg-blue-100 px-1">src/data/imgbb-urls.json</code>.
+              No environment variables required for the public site.
+            </p>
           </div>
         </div>
-      )}
-
-      {documentExists && (
-        <div className="mb-6 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
-          Firestore connected — portfolio data is saved in the cloud.
-        </div>
-      )}
+      </div>
 
       <FormSection title="Quick actions" className="mb-6">
         <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            disabled={syncing}
-            onClick={handleInitialize}
-            className="btn btn-sm gap-2 border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100"
-          >
-            {syncing ? "Saving..." : "Re-sync all content to Firebase"}
-          </button>
           <a
             href="/"
             target="_blank"
@@ -130,7 +69,11 @@ const DashboardHome = () => {
         </div>
       </FormSection>
 
-      <p className="mb-3 text-sm font-semibold text-slate-700">Edit sections</p>
+      <p className="mb-3 text-sm font-semibold text-slate-700">Preview sections (session only)</p>
+      <p className="mb-4 text-xs text-slate-500">
+        Forms below preview changes in this browser session only. To publish, update{" "}
+        <code className="rounded bg-slate-100 px-1">defaultPortfolio.js</code>.
+      </p>
       <div className="grid gap-3 sm:grid-cols-2">
         {sections.map(({ path, label, icon: Icon, desc }) => (
           <Link

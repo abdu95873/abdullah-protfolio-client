@@ -4,7 +4,8 @@ const SaveBar = ({ saving, onSave, label = "Save changes" }) => (
   <div className="fixed bottom-0 left-0 right-0 z-20 border-t border-slate-200 bg-white/95 px-4 py-3 backdrop-blur sm:px-6 lg:left-[280px]">
     <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
       <p className="hidden text-xs text-slate-500 sm:block">
-        Changes are saved to Firebase and appear on your live site.
+        Preview only — edit <code className="rounded bg-slate-100 px-1">defaultPortfolio.js</code> to
+        deploy.
       </p>
       <button
         type="button"

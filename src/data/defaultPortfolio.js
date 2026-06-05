@@ -1,18 +1,19 @@
 import imgbb from "./imgbb-urls.json";
 
+/** Single source of truth — synced from Firebase Firestore (portfolio/content). */
 export const defaultPortfolio = {
   banner: {
     badge: "MERN Developer",
     headline: "Web Developer",
     intro:
       "Hi, I'm Abdullah. A passionate Web Developer building fast, responsive, and modern web apps.",
-    image: imgbb["abdullah.png"],
+    image: "https://i.ibb.co/VcgGcFB7/abdullah.jpg",
     skillsNote: "High knowledge on softwares",
   },
   about: {
     subtitle: "ABOUT ME",
     title: "Web Developer",
-    image: imgbb["abdullah2.png"],
+    image: "https://i.ibb.co/1fKvZKFY/Chat-GPT-Image-Jun-2-2026-12-59-14-AM.png",
     paragraphs: [
       "I'm a passionate Web Developer, and I am incredibly committed to my work. Over the course of my career, I have gained the required skills and knowledge to help you with your projects.",
       "I am focused on React technologies which bring a lot of benefits to my clients:",
@@ -106,6 +107,24 @@ export const defaultPortfolio = {
       "Real projects focused on clean UI, responsive experience, and production-ready architecture.",
     items: [
       {
+        id: "scanzybd",
+        title: "ScanzyBD",
+        description:
+          "ScanzyBD is a Bangladesh-based startup offering smart QR tags for vehicles so owners can be reached quickly in emergencies or everyday situations. I built the full-stack production platform end to end: users can browse and purchase tags online, register vehicles, and link QR codes so scanners land on a public profile or contact flow. The system includes e-commerce with cart and checkout, bKash payment integration, Firebase authentication, bilingual (English/Bengali) UI, QR generation and scan-to-assign workflows, vehicle management, and role-based admin and provider dashboards for orders, inventory, finance, and operations. The stack is React (Vite), Tailwind CSS, and React Query on the frontend and Node.js, Express, and MongoDB on the backend, live at scanzybd.com.",
+        tech: "React, Node.js, Express, MongoDB, Tailwind CSS, Firebase, Vite, bKash, JWT, React Query, i18next",
+        link: "https://scanzybd.com/",
+        image: "https://i.ibb.co/cXRbkppB/Screenshot-7.jpg",
+      },
+      {
+        id: "turf-management",
+        title: "Turf Management",
+        description:
+          "TurfPro is a full-stack sports venue booking platform where users can discover turfs, pools, and multi-sport facilities, check real-time slot availability, book courts, and pay via SSLCommerz. I built the React (Vite) frontend with venue discovery, category browsing, public venue pages (slug-based URLs), booking search, and role-based dashboards for users, venue owners, staff, and admins. Owners manage venues, slots, bookings, events, and finance; staff handle day-to-day operations; admins oversee users, commission, and platform settings. The Node.js / Express API uses MongoDB with JWT auth (access + refresh tokens), booking and slot management, reviews, manual payment options, and payment webhooks. Maps are integrated with Leaflet for venue locations. Stack: React, Node.js, Express, MongoDB, Tailwind CSS, React Query, JWT, SSLCommerz, Leaflet.",
+        tech: "React, Node.js, Express, MongoDB, Tailwind CSS, Vite, React Query, JWT, SSLCommerz, Leaflet, Zod",
+        link: "https://turf-management-frontend-nine.vercel.app/",
+        image: "https://i.ibb.co/qMvp46bw/Screenshot-8.jpg",
+      },
+      {
         id: "omar-portfolio",
         title: "Personal Portfolio",
         description:
@@ -120,17 +139,8 @@ export const defaultPortfolio = {
         description:
           "A full-stack MERN application simulating a shopping complex with dynamic UI, product listings, and scalable architecture.",
         tech: "MERN Stack, Node.js, MongoDB",
-        link: "https://shopping-complex-8cd2e.web.app/",
-        image: imgbb["rohman.png"],
-      },
-      {
-        id: "royal-express",
-        title: "Royal Express Web App",
-        description:
-          "A modern web application for Royal Express, a city courier service that allows users to book deliveries, track parcels, and manage shipments with ease.",
-        tech: "React, Tailwind CSS, UI Design",
-        link: "https://royal-express-671bc.web.app/",
-        image: imgbb["royal.png"],
+        link: "https://shopping-complex-client.vercel.app/",
+        image: "https://i.ibb.co/NgQDr4Qt/Screenshot-6.jpg",
       },
       {
         id: "profast",
@@ -140,6 +150,15 @@ export const defaultPortfolio = {
         tech: "React, Tailwind CSS, UI Design",
         link: "https://zep-shift-a74e9.web.app/",
         image: imgbb["profast.png"],
+      },
+      {
+        id: "royal-express",
+        title: "Royal Express Web App",
+        description:
+          "A modern web application for Royal Express, a city courier service that allows users to book deliveries, track parcels, and manage shipments with ease.",
+        tech: "React, Tailwind CSS, UI Design",
+        link: "https://royal-express-671bc.web.app/",
+        image: imgbb["royal.png"],
       },
     ],
   },

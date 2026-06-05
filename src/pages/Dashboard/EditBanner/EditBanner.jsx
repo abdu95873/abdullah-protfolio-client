@@ -19,7 +19,13 @@ const EditBanner = () => {
   const handleSave = async () => {
     try {
       await updateSection("banner", form);
-      Swal.fire({ icon: "success", title: "Banner saved", timer: 1500, showConfirmButton: false });
+      Swal.fire({
+        icon: "info",
+        title: "Banner preview updated",
+        text: "Edit src/data/defaultPortfolio.js and redeploy to publish.",
+        timer: 2500,
+        showConfirmButton: false,
+      });
     } catch {
       Swal.fire({ icon: "error", title: "Could not save banner" });
     }

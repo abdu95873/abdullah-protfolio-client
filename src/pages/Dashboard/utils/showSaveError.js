@@ -11,9 +11,10 @@ export const showSaveError = (title, error) => {
 
 export const showSaveSuccess = (title) => {
   Swal.fire({
-    icon: "success",
+    icon: "info",
     title,
-    timer: 1500,
+    text: "Preview updated in this session. Edit src/data/defaultPortfolio.js and redeploy to publish.",
+    timer: 2800,
     showConfirmButton: false,
   });
 };
