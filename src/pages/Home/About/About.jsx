@@ -7,15 +7,15 @@ const About = () => {
   return (
     <section className="w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-7 lg:gap-6">
-        <div className="hidden sm:flex w-full lg:w-1/2 relative justify-center h-[290px] md:h-[340px] lg:h-[380px]">
+        <div className="flex w-full lg:w-1/2 relative justify-center items-end min-h-[280px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-[480px] px-2">
           <img
             src={about.image}
             alt="Abdullah"
-            width={400}
-            height={380}
+            width={520}
+            height={520}
             loading="lazy"
             decoding="async"
-            className="h-full object-contain"
+            className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[500px] h-auto max-h-[420px] sm:max-h-[480px] object-contain object-bottom drop-shadow-[0_24px_48px_rgba(15,23,42,0.28)]"
           />
         </div>
 
