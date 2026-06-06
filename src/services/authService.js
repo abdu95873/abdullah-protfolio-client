@@ -1,10 +1,11 @@
 import axios from "axios";
+import { API_BASE_URL } from "../config/api.js";
 
 const TOKEN_KEY = "portfolio_token";
 const USER_KEY = "portfolio_user";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
+  baseURL: API_BASE_URL,
 });
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);

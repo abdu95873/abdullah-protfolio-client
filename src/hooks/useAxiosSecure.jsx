@@ -1,8 +1,9 @@
 import axios from "axios";
-import { getToken } from "../services/authService";
+import { API_BASE_URL } from "../config/api.js";
+import { getToken } from "../services/authService.js";
 
 const axiosSecure = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
+  baseURL: API_BASE_URL,
 });
 
 axiosSecure.interceptors.request.use(async (config) => {

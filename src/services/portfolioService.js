@@ -1,8 +1,9 @@
 import axios from "axios";
-import { getToken } from "../services/authService";
+import { API_BASE_URL } from "../config/api.js";
+import { getToken } from "./authService.js";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "",
+  baseURL: API_BASE_URL,
 });
 
 export const getPortfolio = async () => {

@@ -20,10 +20,16 @@ const Login = () => {
       await signInUser(data.email, data.password);
       navigate(from, { replace: true });
     } catch (error) {
+      const message =
+        error?.response?.data?.message ||
+        (error?.code === "ERR_NETWORK"
+          ? "Cannot reach the API. Check VITE_API_URL on Vercel and redeploy."
+          : "Invalid email or password");
+
       Swal.fire({
         icon: "error",
         title: "Login failed",
-        text: error?.response?.data?.message || "Invalid email or password",
+        text: message,
       });
     }
   };
