@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+.nav-links a.active {
+  color: orange;
+}
+
+.menu-btn {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.close-btn {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    transform: translateX(100%);
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    margin: 0 15px;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: block;
+  }
+}
