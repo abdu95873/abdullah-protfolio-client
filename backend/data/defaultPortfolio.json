@@ -1,0 +1,150 @@
+{
+  "banner": {
+    "badge": "MERN Developer",
+    "headline": "Web Developer",
+    "intro": "Hi, I'm Abdullah. A passionate Web Developer building fast, responsive, and modern web apps.",
+    "image": "https://i.ibb.co/VcgGcFB7/abdullah.jpg",
+    "skillsNote": "High knowledge on softwares"
+  },
+  "about": {
+    "subtitle": "ABOUT ME",
+    "title": "Web Developer",
+    "image": "https://i.ibb.co/1fKvZKFY/Chat-GPT-Image-Jun-2-2026-12-59-14-AM.png",
+    "paragraphs": [
+      "I'm a passionate Web Developer, and I am incredibly committed to my work. Over the course of my career, I have gained the required skills and knowledge to help you with your projects.",
+      "I am focused on React technologies which bring a lot of benefits to my clients:"
+    ],
+    "benefits": [
+      "Technology is supported by Facebook.",
+      "A lot of third-party plugins and components.",
+      "Very good performance compared to other cross-platform frameworks."
+    ],
+    "signature": "Abdullah"
+  },
+  "services": {
+    "label": "SERVICES",
+    "title": "Full-Cycle MERN Stack Web Development Services",
+    "description": "I'm a MERN Stack Developer specializing in building scalable, high-performance web applications using MongoDB, Express, React, and Node.js. I focus on clean architecture, modern UI, and maintainable code to deliver reliable, business-ready solutions.",
+    "skills": [
+      { "name": "JavaScript (ES6+)", "level": 90 },
+      { "name": "React JS", "level": 92 },
+      { "name": "Node.js & Express", "level": 88 },
+      { "name": "MongoDB", "level": 87 },
+      { "name": "TypeScript", "level": 85 },
+      { "name": "MERN Stack", "level": 93 },
+      { "name": "HTML, CSS & Tailwind", "level": 90 }
+    ],
+    "features": [
+      "Research & Planning",
+      "UI / UX Design",
+      "MERN Development",
+      "Maintenance & Support",
+      "Code Quality"
+    ]
+  },
+  "experience": {
+    "label": "EXPERIENCE",
+    "title": "Experience & Technical Highlights",
+    "items": [
+      {
+        "icon": "react",
+        "title": "React & Frontend Engineering",
+        "description": "Developed scalable and maintainable React applications using hooks, reusable components, and modern state management. Focused on performance and clean UI architecture."
+      },
+      {
+        "icon": "laptop",
+        "title": "Modern UI Development",
+        "description": "Crafted responsive and accessible interfaces using HTML, CSS, Tailwind CSS, and JavaScript, ensuring consistent design across devices and browsers."
+      },
+      {
+        "icon": "server",
+        "title": "MERN Stack Applications",
+        "description": "Built full-stack applications with MongoDB, Express, React, and Node.js, including REST APIs, authentication, database modeling, and secure server-side logic."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Me",
+    "items": [
+      {
+        "icon": "email",
+        "label": "Email",
+        "value": "abdu95873@gmail.com",
+        "href": "mailto:abdu95873@gmail.com"
+      },
+      {
+        "icon": "github",
+        "label": "GitHub",
+        "value": "github.com/abdu95873",
+        "href": "https://github.com/abdu95873"
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/abdu95873",
+        "href": "https://linkedin.com/in/abdu95873"
+      },
+      {
+        "icon": "whatsapp",
+        "label": "WhatsApp",
+        "value": "+8801581400986",
+        "href": "https://wa.me/+8801581400986"
+      }
+    ]
+  },
+  "projects": {
+    "label": "FEATURED PROJECTS",
+    "title": "Selected Work & Case Studies",
+    "description": "Real projects focused on clean UI, responsive experience, and production-ready architecture.",
+    "items": [
+      {
+        "id": "scanzybd",
+        "title": "ScanzyBD",
+        "description": "ScanzyBD is a Bangladesh-based startup offering smart QR tags for vehicles so owners can be reached quickly in emergencies or everyday situations. I built the full-stack production platform end to end: users can browse and purchase tags online, register vehicles, and link QR codes so scanners land on a public profile or contact flow. The system includes e-commerce with cart and checkout, bKash payment integration, Firebase authentication, bilingual (English/Bengali) UI, QR generation and scan-to-assign workflows, vehicle management, and role-based admin and provider dashboards for orders, inventory, finance, and operations. The stack is React (Vite), Tailwind CSS, and React Query on the frontend and Node.js, Express, and MongoDB on the backend, live at scanzybd.com.",
+        "tech": "React, Node.js, Express, MongoDB, Tailwind CSS, Firebase, Vite, bKash, JWT, React Query, i18next",
+        "link": "https://scanzybd.com/",
+        "image": "https://i.ibb.co/cXRbkppB/Screenshot-7.jpg"
+      },
+      {
+        "id": "turf-management",
+        "title": "Turf Management",
+        "description": "TurfPro is a full-stack sports venue booking platform where users can discover turfs, pools, and multi-sport facilities, check real-time slot availability, book courts, and pay via SSLCommerz. I built the React (Vite) frontend with venue discovery, category browsing, public venue pages (slug-based URLs), booking search, and role-based dashboards for users, venue owners, staff, and admins. Owners manage venues, slots, bookings, events, and finance; staff handle day-to-day operations; admins oversee users, commission, and platform settings. The Node.js / Express API uses MongoDB with JWT auth (access + refresh tokens), booking and slot management, reviews, manual payment options, and payment webhooks. Maps are integrated with Leaflet for venue locations. Stack: React, Node.js, Express, MongoDB, Tailwind CSS, React Query, JWT, SSLCommerz, Leaflet.",
+        "tech": "React, Node.js, Express, MongoDB, Tailwind CSS, Vite, React Query, JWT, SSLCommerz, Leaflet, Zod",
+        "link": "https://turf-management-frontend-nine.vercel.app/",
+        "image": "https://i.ibb.co/qMvp46bw/Screenshot-8.jpg"
+      },
+      {
+        "id": "omar-portfolio",
+        "title": "Personal Portfolio",
+        "description": "A modern personal portfolio website showcasing projects, skills, and experience with a clean and responsive UI.",
+        "tech": "React, Tailwind CSS, Firebase",
+        "link": "https://omar-client.web.app/",
+        "image": "https://i.ibb.co/Y4LMhS0m/omar.png"
+      },
+      {
+        "id": "shopping-complex",
+        "title": "Shopping Complex Web App",
+        "description": "A full-stack MERN application simulating a shopping complex with dynamic UI, product listings, and scalable architecture.",
+        "tech": "MERN Stack, Node.js, MongoDB",
+        "link": "https://shopping-complex-client.vercel.app/",
+        "image": "https://i.ibb.co/NgQDr4Qt/Screenshot-6.jpg"
+      },
+      {
+        "id": "profast",
+        "title": "ProFast Courier Web App",
+        "description": "A practice project simulating a city courier service with instant delivery, parcel tracking, and rider management.",
+        "tech": "React, Tailwind CSS, UI Design",
+        "link": "https://zep-shift-a74e9.web.app/",
+        "image": "https://i.ibb.co/PsBqvXZH/profast.png"
+      },
+      {
+        "id": "royal-express",
+        "title": "Royal Express Web App",
+        "description": "A modern web application for Royal Express, a city courier service that allows users to book deliveries, track parcels, and manage shipments with ease.",
+        "tech": "React, Tailwind CSS, UI Design",
+        "link": "https://royal-express-671bc.web.app/",
+        "image": "https://i.ibb.co/MkjhSbBF/royal.png"
+      }
+    ]
+  }
+}
