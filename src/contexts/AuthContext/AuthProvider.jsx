@@ -1,65 +1,84 @@
-
-import React, { useEffect, useState } from 'react';
-import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-import { auth } from '../../firebase/firebase.init';
-
-const googleProvider = new GoogleAuthProvider();
+import { useCallback, useEffect, useState } from "react";
+import { AuthContext } from "./AuthContext";
+import {
+  clearAuthStorage,
+  fetchCurrentUser,
+  getStoredUser,
+  loginUser,
+  registerUser,
+  saveAuthSession,
+} from "../../services/authService";
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(() => getStoredUser());
+  const [loading, setLoading] = useState(true);
 
-    const registerUser = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+  useEffect(() => {
+    let cancelled = false;
 
-    const signInUser = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password)
-    }
-
-    const signInGoogle = () => {
-        setLoading(true);
-        return signInWithPopup(auth, googleProvider);
-    }
-
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-    }
-
-    const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile)
-    }
-
-    // observe user state
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-            setLoading(false);
-        })
-        return () => {
-            unSubscribe();
+    const restoreSession = async () => {
+      try {
+        const currentUser = await fetchCurrentUser();
+        if (!cancelled && currentUser) {
+          setUser(currentUser);
         }
-    }, [])
+      } catch {
+        if (!cancelled) {
+          clearAuthStorage();
+          setUser(null);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
 
-    const authInfo = {
-        user,
-        loading,
-        registerUser,
-        signInUser,
-        signInGoogle,
-        logOut,
-        updateUserProfile
+    restoreSession();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const registerUserAccount = useCallback(async (name, email, password) => {
+    setLoading(true);
+    try {
+      const data = await registerUser({ name, email, password });
+      saveAuthSession(data);
+      setUser(data.user);
+      return data;
+    } finally {
+      setLoading(false);
     }
+  }, []);
 
-    return (
-        <AuthContext value={authInfo}>
-            {children}
-        </AuthContext>
-    );
+  const signInUser = useCallback(async (email, password) => {
+    setLoading(true);
+    try {
+      const data = await loginUser({ email, password });
+      saveAuthSession(data);
+      setUser(data.user);
+      return data;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const logOut = useCallback(() => {
+    clearAuthStorage();
+    setUser(null);
+  }, []);
+
+  const authInfo = {
+    user,
+    loading,
+    registerUser: registerUserAccount,
+    signInUser,
+    logOut,
+  };
+
+  return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
 
 export default AuthProvider;

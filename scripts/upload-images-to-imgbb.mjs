@@ -80,7 +80,7 @@ const main = async () => {
     console.log(`  → ${urls[file]}`);
   }
 
-  console.log("\n--- URL map (copy to defaultPortfolio / Firestore) ---\n");
+  console.log("\n--- URL map (copy to defaultPortfolio / MongoDB) ---\n");
   console.log(JSON.stringify(urls, null, 2));
 
   const portfolioPath = path.join(root, "src", "data", "imgbb-urls.json");

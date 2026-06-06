@@ -1,6 +1,6 @@
 import imgbb from "./imgbb-urls.json";
 
-/** Single source of truth for portfolio content. */
+/** Default portfolio content — merged with MongoDB data on load. */
 export const defaultPortfolio = {
   banner: {
     badge: "MERN Developer",

@@ -7,9 +7,10 @@ import {
   FolderKanban,
   Mail,
   ExternalLink,
-  FileCode2,
+  Database,
 } from "lucide-react";
 import useAuth from "../../../hooks/useAuth";
+import usePortfolio from "../../../hooks/usePortfolio";
 import PageHeader from "../components/PageHeader";
 import FormSection from "../components/FormSection";
 
@@ -24,38 +25,52 @@ const sections = [
 
 const DashboardHome = () => {
   const { user } = useAuth();
+  const { loading, error, documentExists } = usePortfolio();
 
   return (
     <div className="pb-8">
       <PageHeader
         title="Overview"
-        description={`Signed in as ${user?.email}. Preview edits in session — publish via src/data/defaultPortfolio.js`}
+        description={`Signed in as ${user?.email}. Edits are saved to MongoDB via the Express API.`}
       />
 
       <div className="mb-6 rounded-2xl border border-blue-200 bg-blue-50 p-5 sm:p-6">
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-200 text-blue-800">
-            <FileCode2 size={24} />
+            <Database size={24} />
           </div>
-          <div>
-            <h2 className="text-lg font-bold text-blue-900">Content source</h2>
+          <div className="flex-1">
+            <h2 className="text-lg font-bold text-blue-900">MongoDB content</h2>
             <p className="mt-1 text-sm text-blue-800/90">
-              Edit{" "}
-              <code className="rounded bg-blue-100 px-1.5 py-0.5 text-xs">src/data/defaultPortfolio.js</code>{" "}
-              to update the live site.
+              Portfolio data is loaded from{" "}
+              <code className="rounded bg-blue-100 px-1.5 py-0.5 text-xs">GET /api/portfolio</code>{" "}
+              Portfolio data is loaded from MongoDB. Login with your admin email and password.
+            </p>
+            <p className="mt-2 text-xs text-blue-700">
+              {loading && "Loading portfolio from API…"}
+              {!loading && error && "Could not load portfolio — check that the backend is running on port 5000."}
+              {!loading && !error && documentExists && "Portfolio document found in MongoDB."}
+              {!loading && !error && !documentExists && "No saved content yet — defaults are shown until you save a section."}
             </p>
           </div>
         </div>
       </div>
 
       <FormSection title="Quick actions" className="mb-6">
-        <a href="/" target="_blank" rel="noreferrer" className="btn btn-sm gap-2 border-slate-200 bg-white">
-          <ExternalLink size={16} />
-          Preview live site
-        </a>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="/"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-sm gap-2 border-slate-200 bg-white"
+          >
+            <ExternalLink size={16} />
+            Preview live site
+          </a>
+        </div>
       </FormSection>
 
-      <p className="mb-3 text-sm font-semibold text-slate-700">Edit sections (preview)</p>
+      <p className="mb-3 text-sm font-semibold text-slate-700">Edit sections</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {sections.map(({ path, label, icon: Icon, desc }) => (
           <Link
