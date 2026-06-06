@@ -50,3 +50,8 @@ export const fetchCurrentUser = async () => {
   });
   return res.data.user;
 };
+
+export const fetchSetupStatus = async () => {
+  const res = await api.get("/api/auth/setup-status");
+  return res.data;
+};

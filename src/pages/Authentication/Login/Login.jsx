@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { fetchSetupStatus } from "../../../services/authService";
 
 const Login = () => {
   const {
@@ -14,6 +16,13 @@ const Login = () => {
   const { signInUser } = useAuth();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/dashboard";
+  const [adminRegistered, setAdminRegistered] = useState(true);
+
+  useEffect(() => {
+    fetchSetupStatus()
+      .then((data) => setAdminRegistered(Boolean(data.adminRegistered)))
+      .catch(() => setAdminRegistered(true));
+  }, []);
 
   const onSubmit = async (data) => {
     try {
@@ -23,7 +32,7 @@ const Login = () => {
       const message =
         error?.response?.data?.message ||
         (error?.code === "ERR_NETWORK"
-          ? "Cannot reach the API. Check VITE_API_URL on Vercel and redeploy."
+          ? "Cannot reach the API server. Try again after redeploy."
           : "Invalid email or password");
 
       Swal.fire({
@@ -39,7 +48,7 @@ const Login = () => {
       <div className="card max-w-md w-full shadow-xl border border-blue-100 bg-white">
         <div className="px-6 pt-6">
           <h1 className="text-2xl sm:text-3xl mb-1 font-bold text-slate-900">Welcome Back</h1>
-          <p className="text-gray-600">Admin login — email and password from MongoDB</p>
+          <p className="text-gray-600">Admin login with your MongoDB account</p>
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -86,12 +95,14 @@ const Login = () => {
               Only the admin account can access the dashboard.
             </p>
 
-            <p className="text-center text-sm text-slate-600">
-              No account yet?{" "}
-              <Link to="/register" className="link link-hover text-blue-600">
-                Register admin
-              </Link>
-            </p>
+            {!adminRegistered && (
+              <p className="text-center text-sm text-slate-600">
+                First time setup?{" "}
+                <Link to="/register" className="link link-hover text-blue-600">
+                  Create admin (once)
+                </Link>
+              </p>
+            )}
           </form>
         </div>
       </div>

@@ -1,3 +1,5 @@
+const PRODUCTION_API_URL = "https://abdullah-protfolio-server.vercel.app";
+
 export const getApiBaseUrl = () => {
   const configured = (import.meta.env.VITE_API_URL || "").trim();
 
@@ -9,7 +11,7 @@ export const getApiBaseUrl = () => {
     return "http://localhost:5000";
   }
 
-  return "";
+  return PRODUCTION_API_URL;
 };
 
 export const API_BASE_URL = getApiBaseUrl();
